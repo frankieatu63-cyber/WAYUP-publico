@@ -114,9 +114,14 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
-        <Scripts />
-      </body>
+  {children}
+  <Scripts />
+  <script
+    src="https://pixel-perfect-replay-84147.lovable.app/embed.js"
+    data-position="left"
+    async
+  ></script>
+</body>
     </html>
   );
 }
