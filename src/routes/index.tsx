@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
 import { Method } from "@/components/Method";
-import { Cases } from "@/components/Cases";
+// import { Cases } from "@/components/Cases";
 import { About } from "@/components/About";
 import { Faq } from "@/components/Faq";
 import { ContactCta } from "@/components/ContactCta";
