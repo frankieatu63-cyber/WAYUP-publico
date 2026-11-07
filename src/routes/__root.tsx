@@ -117,6 +117,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
   {children}
   <Scripts />
+        <WayAppGreeting />
   <script
     src="https://pixel-perfect-replay-84147.lovable.app/embed.js"
     data-position="left"
