@@ -38,7 +38,7 @@ function Index() {
         <Hero />
         <Services />
         <Method />
-        <Cases />
+        {/* <Cases /> */}
         <About />
         <Faq />
         <ContactCta />
