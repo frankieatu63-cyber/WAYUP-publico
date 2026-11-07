@@ -1,4 +1,4 @@
-import { WayAppGreeting } from "@/components/WayAppGreeting";
+import { WayAppGreeting } from "@/components/WayAppGreeting(1)";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
