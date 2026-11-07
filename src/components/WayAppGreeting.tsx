@@ -24,7 +24,7 @@ export function WayAppGreeting() {
         style={{
           position: "fixed",
           bottom: 28,
-          left: 96,
+          left: 290,
           zIndex: 2147483001,
           maxWidth: "min(260px, calc(100vw - 120px))",
           padding: "12px 16px",
