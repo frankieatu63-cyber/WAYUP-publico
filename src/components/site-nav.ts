@@ -12,5 +12,5 @@ export const AUDIT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponen
 
 export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/",
-  instagram: "https://www.instagram.com/",
+  instagram: "https://www.instagram.com/somoswayup/",
 };
