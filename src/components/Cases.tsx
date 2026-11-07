@@ -88,7 +88,7 @@ export function Cases() {
     if (info.offset.x < -60) go(1);
     else if (info.offset.x > 60) go(-1);
   };
-
+  if (!SHOW_CASES) return null;
   return (
     <section
       id="casos"
