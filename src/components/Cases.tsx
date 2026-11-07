@@ -6,7 +6,7 @@ import caseGym from "@/assets/case-gym.jpg";
 import caseReformas from "@/assets/case-reformas.jpg";
 import caseClinica from "@/assets/case-clinica.jpg";
 import { Reveal, SectionHeading, easeLux } from "./Reveal";
-
+const SHOW_CASES = false;
 type Metric = { label: string; before: string; after: string };
 type CaseStudy = {
   sector: string;
