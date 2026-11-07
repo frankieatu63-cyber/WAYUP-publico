@@ -74,7 +74,7 @@ export function Hero() {
             className="eyebrow flex items-center gap-3"
           >
             <span className="h-px w-8 bg-primary" />
-            Soberanía digital para negocios locales
+            Soberanía digital para negocios
           </motion.p>
 
           <h1 className="mt-6 text-[2.75rem] font-normal text-foreground text-balance-tight sm:text-6xl lg:text-[5.25rem]">
