@@ -88,6 +88,20 @@ export function Hero() {
             {h.subtitle}
           </motion.p>
 
+          {/* WAY.APP mounts here, inside the left hero column (not fixed to the viewport). */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: easeLux, delay: 0.9 }}
+            className="mt-7 max-w-xl"
+          >
+            <div
+              id="wayapp-hero-widget"
+              className="min-h-[68px] w-full"
+              aria-label="Asistente WAY.APP"
+            />
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
