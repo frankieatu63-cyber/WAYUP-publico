@@ -249,6 +249,7 @@ export const es = {
     legalTitle: "Legal",
     privacy: "Política de privacidad",
     terms: "Términos y condiciones",
+    admin: "Acceso de administración",
     rights: "Todos los derechos reservados.",
     madeIn: "Hecho en Salamanca para negocios que quieren volar solos.",
   },

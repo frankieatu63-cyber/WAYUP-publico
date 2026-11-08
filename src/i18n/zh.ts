@@ -221,6 +221,7 @@ export const zh: Dictionary = {
     legalTitle: "法律信息",
     privacy: "隐私政策",
     terms: "条款与条件",
+    admin: "管理员入口",
     rights: "版权所有。",
     madeIn: "诞生于萨拉曼卡，献给想要独立腾飞的商家。",
   },

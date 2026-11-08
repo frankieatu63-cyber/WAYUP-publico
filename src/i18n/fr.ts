@@ -249,6 +249,7 @@ export const fr: Dictionary = {
     legalTitle: "Mentions légales",
     privacy: "Politique de confidentialité",
     terms: "Conditions générales",
+    admin: "Accès administrateur",
     rights: "Tous droits réservés.",
     madeIn: "Fait à Salamanque pour les entreprises qui veulent voler de leurs propres ailes.",
   },

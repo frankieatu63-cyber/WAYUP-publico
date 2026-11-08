@@ -92,6 +92,9 @@ export function SiteFooter() {
           </p>
           <LanguageLinks />
           <p>{t.footer.madeIn}</p>
+          <a href="/admin" className="transition-colors hover:text-primary">
+            {t.footer.admin}
+          </a>
         </div>
       </div>
     </footer>

@@ -247,6 +247,7 @@ export const en: Dictionary = {
     legalTitle: "Legal",
     privacy: "Privacy policy",
     terms: "Terms and conditions",
+    admin: "Admin access",
     rights: "All rights reserved.",
     madeIn: "Made in Salamanca for businesses that want to fly solo.",
   },
