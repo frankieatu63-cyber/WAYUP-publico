@@ -58,6 +58,15 @@ export function SiteHeader() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="/servicios-y-tarifas"
+                className="group relative rounded-full px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-foreground"
+              >
+                {locale === "es" ? "Servicios y tarifas" : locale === "en" ? "Services & pricing" : locale === "fr" ? "Services et tarifs" : "服务与价格"}
+                <span className="absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
+              </a>
+            </li>
           </ul>
         </nav>
 
@@ -110,6 +119,18 @@ export function SiteHeader() {
                   </a>
                 </motion.li>
               ))}
+              <motion.li
+                key="services-pricing"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + NAV_LINKS.length * 0.06, duration: 0.6, ease: easeLux }}
+                className="border-b border-border"
+              >
+                <a href="/servicios-y-tarifas" onClick={() => setOpen(false)} className="flex items-center justify-between py-5 font-serif text-3xl text-foreground">
+                  {locale === "es" ? "Servicios y tarifas" : locale === "en" ? "Services & pricing" : locale === "fr" ? "Services et tarifs" : "服务与价格"}
+                  <ArrowUpRight className="h-5 w-5 text-primary" />
+                </a>
+              </motion.li>
               <motion.li
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
