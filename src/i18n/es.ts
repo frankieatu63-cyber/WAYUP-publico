@@ -42,7 +42,7 @@ export const es = {
     /** Space between headline chunks; empty for languages written without spaces. */
     wordGap: true,
     subtitle:
-      "Te hacemos una página que convierta visitas en llamadas y que te encuentren en Google. Así recibes clientes de verdad, y nosotros te acompañamos hasta que puedas seguir creciendo por tu cuenta.",
+      "Unimos el marketing de siempre con lo digital: tu página web, tu presencia en Google y estrategias que traen llamadas y clientes reales. Una visión 360° de tu negocio, con formación incluida para que acabes llevando el control tú.",
     ctaPrimary: "Pide tu diagnóstico gratuito",
     ctaSecondary: "Hablar con Way Up",
     trust: ["Diagnóstico gratuito", "Sin permanencia", "Formación incluida"],
