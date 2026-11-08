@@ -53,7 +53,7 @@ export const en: Dictionary = {
     agendaTitle: "From search to your calendar",
     agendaText: "A new opportunity for your business.",
     appointment: "+1 booking",
-    tagline: "Local visibility. Real opportunities.",
+    tagline: "Real visibility. Real opportunities.",
   },
   services: {
     eyebrow: "360° integrated marketing",
