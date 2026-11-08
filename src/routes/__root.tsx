@@ -1,4 +1,3 @@
-import { WayAppGreeting } from "@/components/WayAppGreeting(1)";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -121,7 +120,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
   {children}
   <Scripts />
-        <WayAppGreeting />
+        <script async src="https://wayappdef.vercel.app/embed.js" data-position="left" />
   <script
     src="https://pixel-perfect-replay-84147.lovable.app/embed.js"
     data-position="left"
