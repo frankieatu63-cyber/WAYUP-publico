@@ -41,7 +41,7 @@ export const en: Dictionary = {
     ],
     wordGap: true,
     subtitle:
-      "We build you a website that turns visits into calls and gets you found on Google. That way you get real customers — and we stay by your side until you can keep growing on your own.",
+      "We combine traditional marketing with digital: your website, your Google presence and strategies that bring in calls and real customers. A 360° view of your business, with training included so you end up taking control yourself.",
     ctaPrimary: "Get your free diagnosis",
     ctaSecondary: "Talk to Way Up",
     trust: ["Free diagnosis", "No lock-in contract", "Training included"],
