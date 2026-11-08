@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrivacidadRouteImport } from './routes/privacidad'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TerminosRouteImport } from './routes/terminos'
+import { Route as ServiciosYTarifasRouteImport } from './routes/servicios-y-tarifas'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
 import { Route as LangSlugRouteImport } from './routes/$lang/$slug'
 
@@ -36,6 +37,11 @@ const TerminosRoute = TerminosRouteImport.update({
   path: '/terminos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServiciosYTarifasRoute = ServiciosYTarifasRouteImport.update({
+  id: '/servicios-y-tarifas',
+  path: '/servicios-y-tarifas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LangIndexRoute = LangIndexRouteImport.update({
   id: '/$lang/',
   path: '/$lang/',
@@ -52,6 +58,9 @@ export interface FileRoutesByFullPath {
   '/privacidad': typeof PrivacidadRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terminos': typeof TerminosRoute
+  '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
+  '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
+  '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
   '/$lang/$slug': typeof LangSlugRoute
   '/$lang/': typeof LangIndexRoute
 }
@@ -79,6 +88,8 @@ export interface FileRouteTypes {
     | '/privacidad'
     | '/sitemap.xml'
     | '/terminos'
+    | '/servicios-y-tarifas'
+    | '/servicios-y-tarifas'
     | '/$lang/$slug'
     | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
@@ -104,6 +115,7 @@ export interface RootRouteChildren {
   PrivacidadRoute: typeof PrivacidadRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TerminosRoute: typeof TerminosRoute
+  ServiciosYTarifasRoute: typeof ServiciosYTarifasRoute
   LangSlugRoute: typeof LangSlugRoute
   LangIndexRoute: typeof LangIndexRoute
 }
@@ -129,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicios-y-tarifas': {
+      id: '/servicios-y-tarifas'
+      path: '/servicios-y-tarifas'
+      fullPath: '/servicios-y-tarifas'
+      preLoaderRoute: typeof ServiciosYTarifasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terminos': {
@@ -160,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacidadRoute: PrivacidadRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TerminosRoute: TerminosRoute,
+  ServiciosYTarifasRoute: ServiciosYTarifasRoute,
   LangSlugRoute: LangSlugRoute,
   LangIndexRoute: LangIndexRoute,
 }
