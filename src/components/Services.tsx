@@ -1,47 +1,24 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Bot, MapPin, Megaphone, type LucideIcon } from "lucide-react";
 
+import { useLocale } from "@/i18n/LocaleProvider";
 import { Reveal, SectionHeading } from "./Reveal";
 
-type Service = {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  points: string[];
-};
-
-const SERVICES: Service[] = [
-  {
-    icon: Megaphone,
-    title: "Estrategia & Publicidad 360°",
-    description:
-      "Campañas de marketing offline y online, branding corporativo y captación de clientes a medida.",
-    points: ["Campañas en Meta y Google Ads", "Branding e identidad visual", "Publicidad local y offline"],
-  },
-  {
-    icon: MapPin,
-    title: "Landing Pages & SEO Local",
-    description:
-      "Webs de alta conversión y dominio absoluto de Google Maps y las búsquedas de tu ciudad.",
-    points: ["Páginas que convierten visitas en llamadas", "Ficha de Google optimizada", "Reseñas y reputación"],
-  },
-  {
-    icon: Bot,
-    title: "Automatización & Agentes IA",
-    description: "Sistemas inteligentes para atender, cualificar y cerrar clientes 24/7.",
-    points: ["Respuesta inmediata en WhatsApp", "Cualificación automática", "Agenda y recordatorios"],
-  },
-];
+/** Icons for each service, in the same order as `t.services.items`. */
+const SERVICE_ICONS: LucideIcon[] = [Megaphone, MapPin, Bot];
 
 export function Services() {
+  const { t } = useLocale();
+  const copy = t.services;
+  const SERVICES = copy.items.map((item, i) => ({ ...item, icon: SERVICE_ICONS[i]! }));
   return (
     <section id="servicios" className="py-24 md:py-36">
       <div className="container-wide">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <SectionHeading eyebrow="Marketing integral 360°" title="Lo que construimos contigo." />
+          <SectionHeading eyebrow={copy.eyebrow} title={copy.title} />
           <Reveal delay={0.1}>
             <p className="max-w-sm text-muted-foreground md:text-right">
-              Unimos lo tradicional y lo digital en un único sistema que trabaja para tu negocio.
+              {copy.intro}
             </p>
           </Reveal>
         </div>
@@ -76,7 +53,7 @@ export function Services() {
                   href="#contacto"
                   className="mt-auto inline-flex items-center gap-2 pt-10 text-sm font-semibold text-primary"
                 >
-                  Quiero esto para mi negocio
+                  {copy.cta}
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               </motion.article>

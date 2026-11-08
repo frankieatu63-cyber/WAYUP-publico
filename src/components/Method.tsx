@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Crown, GraduationCap, Rocket, type LucideIcon } from "lucide-react";
 
+import { useLocale } from "@/i18n/LocaleProvider";
 import { Reveal, SectionHeading, easeLux } from "./Reveal";
 
 type Phase = {
@@ -16,61 +17,17 @@ type Phase = {
   deliverables: string[];
 };
 
-const PHASES: Phase[] = [
-  {
-    id: "fase-1",
-    icon: Rocket,
-    label: "Fase 1",
-    title: "Impulso Inicial",
-    tag: "Dependencia controlada",
-    duration: "Meses 1–3",
-    autonomy: 20,
-    description:
-      "Tomamos el control operativo desde el primer día. Montamos tu web, tu ficha de Google y tus primeras campañas para conseguir resultados rápidos mientras tú te centras en atender a tus clientes.",
-    deliverables: [
-      "Auditoría y diagnóstico completo",
-      "Landing page de alta conversión",
-      "Google Business Profile optimizado",
-      "Primeras campañas y victorias rápidas",
-    ],
-  },
-  {
-    id: "fase-2",
-    icon: GraduationCap,
-    label: "Fase 2",
-    title: "Mentoría, Formación y Entrega de Herramientas",
-    tag: "Empoderamiento",
-    duration: "Meses 4–6",
-    autonomy: 60,
-    description:
-      "Te enseñamos el porqué de cada acción. Accedes a los módulos de nuestra academia, a un arsenal de herramientas y plantillas, y a guías paso a paso para que entiendas y gestiones tu ecosistema digital.",
-    deliverables: [
-      "Módulos de la Academia Way Up",
-      "Arsenal de herramientas configuradas",
-      "Plantillas listas para usar",
-      "Sesiones de mentoría y guías prácticas",
-    ],
-  },
-  {
-    id: "fase-3",
-    icon: Crown,
-    label: "Fase 3",
-    title: "Autonomía y Sostenibilidad",
-    tag: "Dominio del nicho",
-    duration: "Mes 7 en adelante",
-    autonomy: 100,
-    description:
-      "Rompes las cadenas de dependencia. Gestionas tus campañas de forma independiente, con tus cuentas, tus datos y tu método. Tu reino digital es tuyo — y nosotros seguimos a un mensaje de distancia si lo necesitas.",
-    deliverables: [
-      "Campañas gestionadas por tu equipo",
-      "Cuentas y datos 100% a tu nombre",
-      "Cuadro de mando propio",
-      "Revisiones puntuales bajo demanda",
-    ],
-  },
+/** Non-text data of each phase, in the same order as `t.method.phases`. */
+const PHASE_META = [
+  { id: "fase-1", icon: Rocket, autonomy: 20 },
+  { id: "fase-2", icon: GraduationCap, autonomy: 60 },
+  { id: "fase-3", icon: Crown, autonomy: 100 },
 ];
 
 export function Method() {
+  const { t } = useLocale();
+  const copy = t.method;
+  const PHASES: Phase[] = copy.phases.map((p, i) => ({ ...p, ...PHASE_META[i]! }));
   const [active, setActive] = useState(0);
   const phase = PHASES[active]!;
 
@@ -78,19 +35,21 @@ export function Method() {
     <section id="metodo" className="relative border-y border-border bg-paper py-24 md:py-36">
       <div className="container-wide">
         <SectionHeading
-          eyebrow="El método Way Up"
+          eyebrow={copy.eyebrow}
           title={
             <>
-              Las 3 fases de tu <em className="text-primary">Soberanía Digital</em>.
+              {copy.titleBefore}
+              <em className="text-primary">{copy.titleAccent}</em>
+              {copy.titleAfter}
             </>
           }
-          intro="Las agencias que te hacen dependiente no te hacen libre. Nosotros invertimos el modelo: empezamos haciéndolo por ti y terminamos con tu negocio volando solo."
+          intro={copy.intro}
         />
 
         <div className="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-10">
           {/* Stepper */}
           <Reveal className="lg:col-span-5">
-            <div role="tablist" aria-label="Fases del método" className="relative flex flex-col gap-3">
+            <div role="tablist" aria-label={copy.tablistLabel} className="relative flex flex-col gap-3">
               {PHASES.map((p, i) => {
                 const isActive = i === active;
                 return (
@@ -192,7 +151,7 @@ export function Method() {
 
                   <div className="mt-auto pt-10">
                     <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                      <span>Tu nivel de autonomía</span>
+                      <span>{copy.autonomy}</span>
                       <span className="font-serif text-lg normal-case tracking-normal text-foreground">
                         {phase.autonomy}%
                       </span>

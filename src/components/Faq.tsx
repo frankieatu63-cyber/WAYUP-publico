@@ -3,36 +3,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { Reveal, easeLux } from "./Reveal";
 
-const FAQS = [
-  {
-    q: "¿Cuánto tarda en estar lista mi landing page?",
-    a: "Entre 2 y 3 semanas desde el diagnóstico. En la primera semana definimos mensaje y estructura; en la segunda diseñamos y desarrollamos; y antes de publicar la revisamos contigo hasta que esté perfecta.",
-  },
-  {
-    q: "¿Cómo funciona la formación y la mentoría?",
-    a: "En la Fase 2 te entregamos plantillas, accesos configurados y sesiones prácticas. Te enseñamos el porqué de cada acción para que entiendas tu ecosistema digital y puedas gestionarlo con confianza.",
-  },
-  {
-    q: "¿Necesito conocimientos técnicos?",
-    a: "No. Empezamos desde cero y a tu ritmo. Todo lo que te enseñamos está pensado para dueños de negocio, no para programadores: guías claras, vídeos cortos y acompañamiento real.",
-  },
-  {
-    q: "¿De quién son la web, las cuentas y los datos?",
-    a: "Tuyos, desde el primer día. Dominio, web, Google Business Profile, cuentas publicitarias y datos de clientes se crean a tu nombre. Si un día decides seguir solo, no pierdes nada.",
-  },
-  {
-    q: "¿Hay permanencia?",
-    a: "No trabajamos con permanencias. Nuestro objetivo es que llegues a la Fase 3 y no nos necesites; te quedas con nosotros solo mientras te aportemos valor.",
-  },
-  {
-    q: "¿Qué pasa si necesito ayuda después de la Fase 3?",
-    a: "Seguimos a un mensaje de distancia. Puedes contratar revisiones puntuales, nuevas campañas o formación avanzada cuando lo necesites, sin compromisos.",
-  },
-];
-
 export function Faq() {
+  const { t } = useLocale();
+  const copy = t.faq;
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -40,16 +16,16 @@ export function Faq() {
       <div className="container-wide grid gap-14 lg:grid-cols-12 lg:gap-20">
         <Reveal className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <p className="eyebrow">Preguntas frecuentes</p>
+            <p className="eyebrow">{copy.eyebrow}</p>
             <h2 className="mt-4 text-4xl font-normal text-foreground text-balance-tight md:text-6xl">
-              Cómo trabajamos, paso a paso.
+              {copy.title}
             </h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
-              Respuestas rápidas, sin rodeos, sobre plazos, formación y tu autonomía.
+              {copy.intro}
             </p>
             <Button asChild variant="outline" size="lg" className="mt-10">
               <a href="#contacto">
-                ¿Otra duda? Escríbenos
+                {copy.cta}
                 <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />
               </a>
             </Button>
@@ -58,7 +34,7 @@ export function Faq() {
 
         <div className="lg:col-span-7">
           <ul className="border-t border-border">
-            {FAQS.map((f, i) => {
+            {copy.items.map((f, i) => {
               const isOpen = open === i;
               return (
                 <li key={f.q} className="border-b border-border">

@@ -2,6 +2,13 @@
 export const es = {
   langName: "Español",
   langSwitcher: "Cambiar idioma",
+  meta: {
+    homeTitle: "Way Up — Más clientes para tu negocio, con Soberanía Digital",
+    homeDescription:
+      "Agencia de marketing en Salamanca: webs que convierten, SEO local y automatización con IA. Te acompañamos hasta que puedas crecer por tu cuenta.",
+    privacyDescription: "Cómo trata Way Up tus datos personales.",
+    termsDescription: "Condiciones de uso del sitio web y servicios de Way Up.",
+  },
   nav: {
     servicios: "Servicios",
     metodo: "Método",
@@ -17,7 +24,7 @@ export const es = {
     mobileNav: "Menú móvil",
   },
   hero: {
-    eyebrow: "Soberanía digital para negocios locales",
+    eyebrow: "Soberanía digital para negocios",
     headline: [
       { word: "Más" },
       { word: "clientes" },

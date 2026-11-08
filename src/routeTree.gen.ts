@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrivacidadRouteImport } from './routes/privacidad'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TerminosRouteImport } from './routes/terminos'
+import { Route as LangIndexRouteImport } from './routes/$lang/index'
+import { Route as LangSlugRouteImport } from './routes/$lang/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,40 +26,86 @@ const PrivacidadRoute = PrivacidadRouteImport.update({
   path: '/privacidad',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TerminosRoute = TerminosRouteImport.update({
   id: '/terminos',
   path: '/terminos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/$lang/',
+  path: '/$lang/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangSlugRoute = LangSlugRouteImport.update({
+  id: '/$lang/$slug',
+  path: '/$lang/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacidad': typeof PrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terminos': typeof TerminosRoute
+  '/$lang/$slug': typeof LangSlugRoute
+  '/$lang/': typeof LangIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacidad': typeof PrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terminos': typeof TerminosRoute
+  '/$lang/$slug': typeof LangSlugRoute
+  '/$lang': typeof LangIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/privacidad': typeof PrivacidadRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terminos': typeof TerminosRoute
+  '/$lang/$slug': typeof LangSlugRoute
+  '/$lang/': typeof LangIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacidad' | '/terminos'
+  fullPaths:
+    | '/'
+    | '/privacidad'
+    | '/sitemap.xml'
+    | '/terminos'
+    | '/$lang/$slug'
+    | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacidad' | '/terminos'
-  id: '__root__' | '/' | '/privacidad' | '/terminos'
+  to:
+    | '/'
+    | '/privacidad'
+    | '/sitemap.xml'
+    | '/terminos'
+    | '/$lang/$slug'
+    | '/$lang'
+  id:
+    | '__root__'
+    | '/'
+    | '/privacidad'
+    | '/sitemap.xml'
+    | '/terminos'
+    | '/$lang/$slug'
+    | '/$lang/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrivacidadRoute: typeof PrivacidadRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TerminosRoute: typeof TerminosRoute
+  LangSlugRoute: typeof LangSlugRoute
+  LangIndexRoute: typeof LangIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -75,11 +124,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacidadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terminos': {
       id: '/terminos'
       path: '/terminos'
       fullPath: '/terminos'
       preLoaderRoute: typeof TerminosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/$lang'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/$slug': {
+      id: '/$lang/$slug'
+      path: '/$lang/$slug'
+      fullPath: '/$lang/$slug'
+      preLoaderRoute: typeof LangSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +158,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrivacidadRoute: PrivacidadRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TerminosRoute: TerminosRoute,
+  LangSlugRoute: LangSlugRoute,
+  LangIndexRoute: LangIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

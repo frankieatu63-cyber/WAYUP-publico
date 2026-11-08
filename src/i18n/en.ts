@@ -3,6 +3,13 @@ import type { Dictionary } from "./es";
 export const en: Dictionary = {
   langName: "English",
   langSwitcher: "Change language",
+  meta: {
+    homeTitle: "Way Up — More customers for your business, with Digital Sovereignty",
+    homeDescription:
+      "Marketing agency in Salamanca, Spain: websites that convert, local SEO and AI automation. We stay by your side until you can grow on your own.",
+    privacyDescription: "How Way Up handles your personal data.",
+    termsDescription: "Terms of use for the Way Up website and services.",
+  },
   nav: {
     servicios: "Services",
     metodo: "Method",

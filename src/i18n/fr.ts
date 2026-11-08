@@ -3,6 +3,13 @@ import type { Dictionary } from "./es";
 export const fr: Dictionary = {
   langName: "Français",
   langSwitcher: "Changer de langue",
+  meta: {
+    homeTitle: "Way Up — Plus de clients pour votre entreprise, grâce à la Souveraineté Numérique",
+    homeDescription:
+      "Agence de marketing à Salamanque : sites web qui convertissent, SEO local et automatisation par IA. Nous vous accompagnons jusqu’à ce que vous puissiez grandir seul.",
+    privacyDescription: "Comment Way Up traite vos données personnelles.",
+    termsDescription: "Conditions d’utilisation du site web et des services de Way Up.",
+  },
   nav: {
     servicios: "Services",
     metodo: "Méthode",
