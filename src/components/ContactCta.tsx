@@ -5,9 +5,12 @@ import { useRef } from "react";
 import logo from "@/assets/wayup-logo.png";
 import { Button } from "@/components/ui/button";
 import { ScrollScale } from "./Reveal";
-import { AUDIT_MAILTO, CONTACT_EMAIL } from "./site-nav";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { auditMailto, CONTACT_EMAIL } from "./site-nav";
 
 export function ContactCta() {
+  const { t } = useLocale();
+  const copy = t.contact;
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -31,23 +34,22 @@ export function ContactCta() {
             />
             <div className="relative grid gap-12 lg:grid-cols-12 lg:items-end">
               <div className="lg:col-span-8">
-                <p className="eyebrow [--eyebrow-color:var(--primary-foreground)] opacity-75">Auditoría gratuita</p>
+                <p className="eyebrow [--eyebrow-color:var(--primary-foreground)] opacity-75">{copy.eyebrow}</p>
                 <h2 className="mt-4 text-4xl font-normal text-primary-foreground text-balance-tight md:text-7xl">
-                  ¿Estás perdiendo clientes por tu web?
+                  {copy.title}
                 </h2>
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/80">
-                  Analizamos tu web, tu ficha de Google y tu competencia, y te decimos exactamente
-                  dónde se escapan tus clientes. Sin compromiso.
+                  {copy.text}
                 </p>
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                   <Button asChild variant="paper" size="xl">
-                    <a href={AUDIT_MAILTO}>
-                      Solicitar auditoría gratuita
+                    <a href={auditMailto(copy.mailSubject)}>
+                      {copy.ctaPrimary}
                       <ArrowUpRight className="transition-transform duration-300 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
                     </a>
                   </Button>
                   <Button asChild variant="outline-paper" size="xl">
-                    <a href={`mailto:${CONTACT_EMAIL}`}>Hablar con Way Up</a>
+                    <a href={`mailto:${CONTACT_EMAIL}`}>{copy.ctaSecondary}</a>
                   </Button>
                 </div>
               </div>
@@ -61,7 +63,7 @@ export function ContactCta() {
                   </li>
                   <li className="flex items-center gap-3">
                     <MapPin className="h-4 w-4" />
-                    Salamanca, Castilla y León
+                    {copy.location}
                   </li>
                 </ul>
               </div>

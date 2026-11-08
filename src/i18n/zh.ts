@@ -3,6 +3,13 @@ import type { Dictionary } from "./es";
 export const zh: Dictionary = {
   langName: "中文",
   langSwitcher: "切换语言",
+  meta: {
+    homeTitle: "Way Up — 以数字主权，为你的生意带来更多客户",
+    homeDescription:
+      "西班牙萨拉曼卡的营销机构：高转化网站、本地 SEO 与 AI 自动化。我们陪伴你，直到你能独立成长。",
+    privacyDescription: "Way Up 如何处理你的个人数据。",
+    termsDescription: "Way Up 网站及服务的使用条款。",
+  },
   nav: {
     servicios: "服务",
     metodo: "方法",

@@ -4,27 +4,13 @@ import { ArrowRight, Check } from "lucide-react";
 
 import cityStreet from "@/assets/hero-city-street.jpg";
 import { Button } from "@/components/ui/button";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { LocalSearchCard } from "./LocalSearchCard";
 import { easeLux } from "./Reveal";
 
-const HEADLINE: { word: string; accent?: boolean }[] = [
-  { word: "Más" },
-  { word: "clientes" },
-  { word: "para" },
-  { word: "tu" },
-  { word: "negocio," },
-  { word: "sin" },
-  { word: "depender" },
-  { word: "de" },
-  { word: "una" },
-  { word: "agencia" },
-  { word: "para", accent: true },
-  { word: "siempre", accent: true },
-];
-
-const TRUST = ["Diagnóstico gratuito", "Sin permanencia", "Formación incluida"];
-
 export function Hero() {
+  const { t } = useLocale();
+  const h = t.hero;
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
@@ -74,11 +60,11 @@ export function Hero() {
             className="eyebrow flex items-center gap-3"
           >
             <span className="h-px w-8 bg-primary" />
-            Soberanía digital para negocios
+            {h.eyebrow}
           </motion.p>
 
           <h1 className="mt-6 text-[2.75rem] font-normal text-foreground text-balance-tight sm:text-6xl lg:text-[5.25rem]">
-            {HEADLINE.map((w, i) => (
+            {h.headline.map((w, i) => (
               <span key={i} className="inline-block overflow-hidden pb-[0.12em] align-top">
                 <motion.span
                   className={`inline-block ${w.accent ? "italic text-primary" : ""}`}
@@ -88,7 +74,7 @@ export function Hero() {
                 >
                   {w.word}
                 </motion.span>
-                {i < HEADLINE.length - 1 && "\u00A0"}
+                {h.wordGap && i < h.headline.length - 1 && "\u00A0"}
               </span>
             ))}
           </h1>
@@ -99,9 +85,7 @@ export function Hero() {
             transition={{ duration: 0.9, ease: easeLux, delay: 0.8 }}
             className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
           >
-            Te hacemos una página que convierta visitas en llamadas y que te encuentren en Google.
-            Así recibes clientes de verdad, y nosotros te acompañamos hasta que puedas seguir
-            creciendo por tu cuenta.
+            {h.subtitle}
           </motion.p>
 
           <motion.div
@@ -112,12 +96,12 @@ export function Hero() {
           >
             <Button asChild variant="hero" size="xl">
               <a href="#contacto">
-                Pide tu diagnóstico gratuito
+                {h.ctaPrimary}
                 <ArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-1" />
               </a>
             </Button>
             <Button asChild variant="outline" size="xl">
-              <a href="#contacto">Hablar con Way Up</a>
+              <a href="#contacto">{h.ctaSecondary}</a>
             </Button>
           </motion.div>
 
@@ -127,10 +111,10 @@ export function Hero() {
             transition={{ duration: 1, delay: 1.2 }}
             className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground"
           >
-            {TRUST.map((t) => (
-              <li key={t} className="flex items-center gap-2">
+            {h.trust.map((item) => (
+              <li key={item} className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-primary" />
-                {t}
+                {item}
               </li>
             ))}
           </motion.ul>

@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { Building2, CalendarCheck, MapPin, Search, Star } from "lucide-react";
+import { useLocale } from "@/i18n/LocaleProvider";
 import { easeLux } from "./Reveal";
 
 /** Animated "Google Maps" mock: the business appears right where people search. */
 export function LocalSearchCard() {
+  const { t } = useLocale();
+  const c = t.searchCard;
   return (
     <motion.div
       initial={{ opacity: 0, y: 40, rotate: 1.5 }}
@@ -14,7 +17,7 @@ export function LocalSearchCard() {
       {/* Search bar */}
       <div className="flex items-center gap-3 rounded-2xl border border-border bg-background px-4 py-3">
         <span className="font-serif text-lg font-semibold text-primary">G</span>
-        <TypedQuery />
+        <TypedQuery text={c.query} />
         <Search className="ml-auto h-4 w-4 text-muted-foreground" />
       </div>
 
@@ -58,9 +61,9 @@ export function LocalSearchCard() {
             <Building2 className="h-4 w-4" />
           </span>
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-foreground">Tu negocio</p>
+            <p className="text-sm font-semibold text-foreground">{c.business}</p>
             <p className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Star className="h-3 w-3 fill-primary text-primary" /> 4,9 · Justo donde te buscan
+              <Star className="h-3 w-3 fill-primary text-primary" /> {c.rating}
             </p>
           </div>
         </motion.div>
@@ -77,23 +80,22 @@ export function LocalSearchCard() {
           <CalendarCheck className="h-5 w-5" />
         </span>
         <div>
-          <p className="text-sm font-semibold text-foreground">De la búsqueda a tu agenda</p>
-          <p className="text-xs text-muted-foreground">Una nueva oportunidad para tu negocio.</p>
+          <p className="text-sm font-semibold text-foreground">{c.agendaTitle}</p>
+          <p className="text-xs text-muted-foreground">{c.agendaText}</p>
         </div>
         <span className="ml-auto whitespace-nowrap rounded-full bg-success/10 px-2.5 py-1 text-[0.7rem] font-semibold text-success">
-          +1 cita
+          {c.appointment}
         </span>
       </motion.div>
 
       <p className="mt-4 text-center text-[0.65rem] font-bold uppercase tracking-[0.2em] text-primary">
-        Visibilidad local. Oportunidades reales.
+        {c.tagline}
       </p>
     </motion.div>
   );
 }
 
-function TypedQuery() {
-  const text = "El mejor negocio cerca de mí";
+function TypedQuery({ text }: { text: string }) {
   return (
     <span className="truncate text-sm text-foreground/80" aria-label={text}>
       {text.split("").map((ch, i) => (

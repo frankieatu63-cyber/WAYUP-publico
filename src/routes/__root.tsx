@@ -5,6 +5,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -12,6 +13,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { HTML_LANG, localeFromPathname } from "../i18n/config";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -109,8 +111,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  // Each language lives under its own URL prefix, so the page language follows the path.
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
-    <html lang="es">
+    <html lang={HTML_LANG[localeFromPathname(pathname)]}>
       <head>
         <HeadContent />
       </head>

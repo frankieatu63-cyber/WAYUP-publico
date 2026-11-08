@@ -1,14 +1,16 @@
+/** Home-page sections the navigation points to. Labels come from the dictionary (`t.nav[key]`). */
 export const NAV_LINKS = [
-  { label: "Servicios", href: "/#servicios" },
-  { label: "Método", href: "/#metodo" },
-  { label: "Sobre nosotros", href: "/#sobre-nosotros" },
-  { label: "Contacto", href: "/#contacto" },
+  { key: "servicios", anchor: "servicios" },
+  { key: "metodo", anchor: "metodo" },
+  { key: "nosotros", anchor: "sobre-nosotros" },
+  { key: "contacto", anchor: "contacto" },
 ] as const;
 
 export const CONTACT_EMAIL = "hola@wayup.es";
-export const AUDIT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-  "Solicitud de auditoría gratuita",
-)}`;
+
+/** `mailto:` link for the audit request; the subject comes from the dictionary (`t.contact.mailSubject`). */
+export const auditMailto = (subject: string) =>
+  `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;
 
 export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/",

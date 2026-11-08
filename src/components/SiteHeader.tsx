@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 
 import logo from "@/assets/wayup-logo.png";
 import { Button } from "@/components/ui/button";
+import { pathFor, sectionPath } from "@/i18n/config";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { NAV_LINKS } from "./site-nav";
 import { easeLux } from "./Reveal";
 
 export function SiteHeader() {
+  const { locale, t } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -35,22 +38,22 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-wide flex h-20 items-center justify-between gap-6">
-        <Link to="/" className="flex items-center gap-3" aria-label="Way Up — inicio">
+        <a href={pathFor(locale)} className="flex items-center gap-3" aria-label={t.header.homeLabel}>
           <img src={logo} alt="Way Up" width={60} height={60} className="h-14 w-14 rounded-full md:h-[3.75rem] md:w-[3.75rem]" />
           <span className="hidden font-serif text-xl tracking-tight text-foreground sm:inline">
             Way Up
           </span>
-        </Link>
+        </a>
 
-        <nav aria-label="Principal" className="hidden lg:block">
+        <nav aria-label={t.header.mainNav} className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {NAV_LINKS.map((l) => (
-              <li key={l.href}>
+              <li key={l.key}>
                 <a
-                  href={l.href}
+                  href={sectionPath(locale, l.anchor)}
                   className="group relative rounded-full px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-foreground"
                 >
-                  {l.label}
+                  {t.nav[l.key]}
                   <span className="absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
                 </a>
               </li>
@@ -59,9 +62,10 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <LanguageSwitcher />
           <Button asChild variant="ink" size="default" className="hidden md:inline-flex">
             <a href="#contacto">
-              <span>Solicitar auditoría gratuita</span>
+              <span>{t.header.cta}</span>
               <ArrowUpRight className="transition-transform duration-300 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
             </a>
           </Button>
@@ -70,7 +74,7 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong text-foreground lg:hidden"
             aria-expanded={open}
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-label={open ? t.header.closeMenu : t.header.openMenu}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -80,7 +84,7 @@ export function SiteHeader() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            aria-label="Menú móvil"
+            aria-label={t.header.mobileNav}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "100dvh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -90,18 +94,18 @@ export function SiteHeader() {
             <ul className="container-wide flex flex-col pt-6">
               {NAV_LINKS.map((l, i) => (
                 <motion.li
-                  key={l.href}
+                  key={l.key}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.06, duration: 0.6, ease: easeLux }}
                   className="border-b border-border"
                 >
                   <a
-                    href={l.href}
+                    href={sectionPath(locale, l.anchor)}
                     onClick={() => setOpen(false)}
                     className="flex items-center justify-between py-5 font-serif text-3xl text-foreground"
                   >
-                    {l.label}
+                    {t.nav[l.key]}
                     <ArrowUpRight className="h-5 w-5 text-primary" />
                   </a>
                 </motion.li>
@@ -114,7 +118,7 @@ export function SiteHeader() {
               >
                 <Button asChild variant="hero" size="xl" className="w-full">
                   <a href="#contacto" onClick={() => setOpen(false)}>
-                    Solicitar auditoría gratuita
+                    {t.header.cta}
                   </a>
                 </Button>
               </motion.li>
