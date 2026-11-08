@@ -121,11 +121,6 @@ function RootShell({ children }: { children: ReactNode }) {
   {children}
   <Scripts />
         <script async src="https://wayappdef.vercel.app/embed.js" data-position="left" />
-  <script
-    src="https://pixel-perfect-replay-84147.lovable.app/embed.js"
-    data-position="left"
-    async
-  ></script>
 </body>
     </html>
   );
