@@ -118,10 +118,15 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-  {children}
-  <Scripts />
-        <script async src="https://wayappdef.vercel.app/embed.js" data-position="left" />
-</body>
+        {children}
+        <Scripts />
+        <script
+          async
+          src="https://wayappdef.vercel.app/embed.js"
+          data-target="#wayapp-hero-widget"
+          data-mode="inline"
+        />
+      </body>
     </html>
   );
 }
