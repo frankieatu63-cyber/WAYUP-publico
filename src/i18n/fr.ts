@@ -42,7 +42,7 @@ export const fr: Dictionary = {
     ],
     wordGap: true,
     subtitle:
-      "Nous créons pour vous un site qui transforme les visites en appels et qui vous rend visible sur Google. Vous recevez de vrais clients, et nous vous accompagnons jusqu’à ce que vous puissiez continuer à grandir par vous-même.",
+      "Nous unissons le marketing de toujours au digital : votre site web, votre présence sur Google et des stratégies qui font venir des appels et de vrais clients. Une vision 360° de votre activité, avec une formation incluse pour que vous finissiez par prendre le contrôle vous-même.",
     ctaPrimary: "Demandez votre diagnostic gratuit",
     ctaSecondary: "Parler à Way Up",
     trust: ["Diagnostic gratuit", "Sans engagement", "Formation incluse"],
