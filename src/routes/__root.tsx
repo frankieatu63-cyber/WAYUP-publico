@@ -122,7 +122,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <Scripts />
         <script
           async
-          src="https://wayappdef.vercel.app/embed.js"
+          src="https://wayappdef.francopdimauro.workers.dev/embed.js"
           data-target="#wayapp-hero-widget"
           data-mode="inline"
         />
