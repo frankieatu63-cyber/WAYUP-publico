@@ -56,7 +56,7 @@ export function SiteHeader() {
                 <path d="M14.5 36.2 12 40h12l-2.5-3.8" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                 <path d="M15 40v2h6v-2" fill="none" stroke="currentColor" strokeWidth="1.2" />
               </svg>
-              <span className="whitespace-nowrap font-serif text-sm font-semibold tracking-tight text-foreground sm:text-base">Eleva tu negocio.</span>
+              <span className="whitespace-nowrap font-serif text-sm font-semibold tracking-tight text-[#0645c8] sm:text-base">Eleva tu negocio.</span>
             </span>
           </span>
         </a>
