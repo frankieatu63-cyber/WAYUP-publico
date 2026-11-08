@@ -40,8 +40,24 @@ export function SiteHeader() {
       <div className="container-wide flex h-20 items-center justify-between gap-6">
         <a href={pathFor(locale)} className="flex items-center gap-3" aria-label={t.header.homeLabel}>
           <img src={logo} alt="Way Up" width={60} height={60} className="h-14 w-14 rounded-full md:h-[3.75rem] md:w-[3.75rem]" />
-          <span className="hidden font-serif text-xl tracking-tight text-foreground sm:inline">
-            Way Up
+          <span className="hidden items-center gap-3 sm:inline-flex">
+            <span className="font-serif text-xl tracking-tight text-foreground">Way Up</span>
+            <span className="hidden h-7 w-px bg-border-strong sm:block" aria-hidden="true" />
+            <span className="flex items-center gap-2.5">
+              <svg aria-hidden="true" viewBox="0 0 36 44" className="h-8 w-7 shrink-0 text-primary">
+                <defs>
+                  <linearGradient id="wayup-balloon" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#4f8df7" />
+                    <stop offset="100%" stopColor="#0645c8" />
+                  </linearGradient>
+                </defs>
+                <path d="M18 2.5C9.3 2.5 3 9.1 3 17.1c0 8.4 7.3 15.1 12.1 20.1L18 41l2.9-3.8C25.7 32.2 33 25.5 33 17.1 33 9.1 26.7 2.5 18 2.5Z" fill="url(#wayup-balloon)" />
+                <path d="M10 8.5c-2.1 2-3.2 4.7-3.2 7.8M18 37.2l-2.1-2.7h4.2L18 37.2Z" fill="none" stroke="currentColor" strokeOpacity=".55" strokeWidth="1.2" strokeLinecap="round" />
+                <path d="M14.5 36.2 12 40h12l-2.5-3.8" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                <path d="M15 40v2h6v-2" fill="none" stroke="currentColor" strokeWidth="1.2" />
+              </svg>
+              <span className="font-serif text-base font-semibold tracking-tight text-foreground">Eleva tu negocio.</span>
+            </span>
           </span>
         </a>
 
