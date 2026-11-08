@@ -37,14 +37,14 @@ export function SiteHeader() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="container-wide flex h-20 items-center justify-between gap-6">
-        <a href={pathFor(locale)} className="flex items-center gap-3" aria-label={t.header.homeLabel}>
-          <img src={logo} alt="Way Up" width={60} height={60} className="h-14 w-14 rounded-full md:h-[3.75rem] md:w-[3.75rem]" />
-          <span className="inline-flex min-w-0 items-center gap-2 sm:gap-3">
-            <span className="hidden font-serif text-xl tracking-tight text-foreground md:inline">Way Up</span>
-            <span className="hidden h-7 w-px bg-border-strong md:block" aria-hidden="true" />
-            <span className="flex items-center gap-2.5">
-              <svg aria-hidden="true" viewBox="0 0 36 44" className="h-7 w-6 shrink-0 text-primary sm:h-8 sm:w-7">
+      <div className="container-wide flex h-20 items-center justify-between gap-3 xl:gap-5">
+        <a href={pathFor(locale)} className="flex min-w-0 shrink-0 items-center gap-2.5 xl:gap-3" aria-label={t.header.homeLabel}>
+          <img src={logo} alt="Way Up" width={52} height={52} className="h-11 w-11 rounded-full xl:h-12 xl:w-12" />
+          <span className="inline-flex min-w-0 items-center gap-2">
+            <span className="hidden font-serif text-lg tracking-tight text-foreground xl:inline">Way Up</span>
+            <span className="hidden h-6 w-px bg-border-strong xl:block" aria-hidden="true" />
+            <span className="flex items-center gap-1.5 xl:gap-2">
+              <svg aria-hidden="true" viewBox="0 0 36 44" className="h-6 w-5 shrink-0 text-primary xl:h-7 xl:w-6">
                 <defs>
                   <linearGradient id="wayup-balloon" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stopColor="#4f8df7" />
@@ -56,18 +56,18 @@ export function SiteHeader() {
                 <path d="M14.5 36.2 12 40h12l-2.5-3.8" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                 <path d="M15 40v2h6v-2" fill="none" stroke="currentColor" strokeWidth="1.2" />
               </svg>
-              <span className="whitespace-nowrap font-serif text-sm font-semibold tracking-tight text-[#0645c8] sm:text-base">Eleva tu negocio.</span>
+              <span className="whitespace-nowrap font-serif text-[0.78rem] font-semibold tracking-tight text-[#0645c8] xl:text-sm">Eleva tu negocio.</span>
             </span>
           </span>
         </a>
 
-        <nav aria-label={t.header.mainNav} className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+        <nav aria-label={t.header.mainNav} className="hidden xl:block shrink-0">
+          <ul className="flex items-center gap-0.5 2xl:gap-1">
             {NAV_LINKS.map((l) => (
               <li key={l.key}>
                 <a
                   href={sectionPath(locale, l.anchor)}
-                  className="group relative rounded-full px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-foreground"
+                  className="group relative rounded-full px-2.5 py-2 text-xs font-medium text-foreground/75 transition-colors hover:text-foreground 2xl:px-3 2xl:text-sm"
                 >
                   {t.nav[l.key]}
                   <span className="absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
@@ -86,7 +86,7 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
           <LanguageSwitcher />
           <Button asChild variant="ink" size="default" className="hidden md:inline-flex">
             <a href="#contacto">
@@ -97,7 +97,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong text-foreground lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-strong text-foreground xl:hidden"
             aria-expanded={open}
             aria-label={open ? t.header.closeMenu : t.header.openMenu}
           >
@@ -114,7 +114,7 @@ export function SiteHeader() {
             animate={{ height: "100dvh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.5, ease: easeLux }}
-            className="overflow-hidden bg-background lg:hidden"
+            className="overflow-hidden bg-background xl:hidden"
           >
             <ul className="container-wide flex flex-col pt-6">
               {NAV_LINKS.map((l, i) => (
