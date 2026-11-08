@@ -89,7 +89,6 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/terminos'
     | '/servicios-y-tarifas'
-    | '/servicios-y-tarifas'
     | '/$lang/$slug'
     | '/$lang/'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +97,7 @@ export interface FileRouteTypes {
     | '/privacidad'
     | '/sitemap.xml'
     | '/terminos'
+    | '/servicios-y-tarifas'
     | '/$lang/$slug'
     | '/$lang'
   id:
@@ -106,6 +106,7 @@ export interface FileRouteTypes {
     | '/privacidad'
     | '/sitemap.xml'
     | '/terminos'
+    | '/servicios-y-tarifas'
     | '/$lang/$slug'
     | '/$lang/'
   fileRoutesById: FileRoutesById
