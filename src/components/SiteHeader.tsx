@@ -40,9 +40,7 @@ export function SiteHeader() {
       <div className="container-wide flex h-20 items-center justify-between gap-3 xl:gap-5">
         <a href={pathFor(locale)} className="flex min-w-0 shrink-0 items-center gap-2.5 xl:gap-3" aria-label={t.header.homeLabel}>
           <img src={logo} alt="Way Up" width={52} height={52} className="h-11 w-11 rounded-full xl:h-12 xl:w-12" />
-          <span className="inline-flex min-w-0 items-center gap-2">
-            <span className="hidden font-serif text-lg tracking-tight text-foreground xl:inline">Way Up</span>
-            <span className="hidden h-6 w-px bg-border-strong xl:block" aria-hidden="true" />
+          <span className="inline-flex min-w-0 items-center">
             <span className="flex items-center gap-1.5 xl:gap-2">
               <svg aria-hidden="true" viewBox="0 0 36 44" className="h-6 w-5 shrink-0 text-primary xl:h-7 xl:w-6">
                 <defs>
