@@ -48,7 +48,7 @@ export const zh: Dictionary = {
     agendaTitle: "从搜索到你的日程",
     agendaText: "为你的生意带来新的机会。",
     appointment: "+1 预约",
-    tagline: "本地曝光，真实机会。",
+    tagline: "真实曝光，真实机会。",
   },
   services: {
     eyebrow: "360° 整合营销",
