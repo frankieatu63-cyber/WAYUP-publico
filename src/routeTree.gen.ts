@@ -59,8 +59,6 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terminos': typeof TerminosRoute
   '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
-  '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
-  '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
   '/$lang/$slug': typeof LangSlugRoute
   '/$lang/': typeof LangIndexRoute
 }
@@ -69,6 +67,7 @@ export interface FileRoutesByTo {
   '/privacidad': typeof PrivacidadRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terminos': typeof TerminosRoute
+  '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
   '/$lang/$slug': typeof LangSlugRoute
   '/$lang': typeof LangIndexRoute
 }
@@ -78,6 +77,7 @@ export interface FileRoutesById {
   '/privacidad': typeof PrivacidadRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terminos': typeof TerminosRoute
+  '/servicios-y-tarifas': typeof ServiciosYTarifasRoute
   '/$lang/$slug': typeof LangSlugRoute
   '/$lang/': typeof LangIndexRoute
 }
