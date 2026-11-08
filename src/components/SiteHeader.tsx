@@ -77,7 +77,7 @@ export function SiteHeader() {
             <li>
               <a
                 href="/servicios-y-tarifas"
-                className="group relative rounded-full px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-foreground"
+                className="group relative rounded-full px-2.5 py-2 text-xs font-medium text-foreground/75 transition-colors hover:text-foreground xl:px-3 xl:text-sm"
               >
                 {locale === "es" ? "Servicios y tarifas" : locale === "en" ? "Services & pricing" : locale === "fr" ? "Services et tarifs" : "服务与价格"}
                 <span className="absolute inset-x-4 bottom-1 h-px origin-left scale-x-0 bg-primary transition-transform duration-500 ease-out group-hover:scale-x-100" />
