@@ -54,7 +54,7 @@ export const fr: Dictionary = {
     agendaTitle: "De la recherche à votre agenda",
     agendaText: "Une nouvelle opportunité pour votre entreprise.",
     appointment: "+1 rendez-vous",
-    tagline: "Visibilité locale. Opportunités réelles.",
+    tagline: "Visibilité réelle. Opportunités réelles.",
   },
   services: {
     eyebrow: "Marketing intégral 360°",
