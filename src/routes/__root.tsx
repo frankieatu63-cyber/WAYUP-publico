@@ -123,8 +123,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <script
           async
           src="https://wayappdef.francopdimauro.workers.dev/embed.js"
-          data-target="#wayapp-hero-widget"
-          data-mode="inline"
+          data-mode="floating"
         />
       </body>
     </html>
