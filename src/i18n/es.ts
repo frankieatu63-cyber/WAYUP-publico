@@ -54,7 +54,7 @@ export const es = {
     agendaTitle: "De la búsqueda a tu agenda",
     agendaText: "Una nueva oportunidad para tu negocio.",
     appointment: "+1 cita",
-    tagline: "Visibilidad local. Oportunidades reales.",
+    tagline: "Visibilidad real. Oportunidades reales.",
   },
   services: {
     eyebrow: "Marketing integral 360°",
