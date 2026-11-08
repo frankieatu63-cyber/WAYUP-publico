@@ -28,6 +28,12 @@ describe("App routing", () => {
     "/zh/privacy",
     "/zh/terms",
     "/sitemap.xml",
+    "/admin",
+    "/api/chat",
+    "/api/health",
+    "/api/auth/status",
+    "/api/auth/callback/google",
+    "/api/admin/overview",
   ])("matches a page for %s", (path) => {
     expect(router.matchRoutes(path).at(-1)?.routeId).not.toBe(rootRouteId);
   });

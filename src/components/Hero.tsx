@@ -6,6 +6,7 @@ import cityStreet from "@/assets/hero-city-street.jpg";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { LocalSearchCard } from "./LocalSearchCard";
+import { WayAppHeroLauncher } from "./wayapp/WayAppHeroLauncher";
 import { easeLux } from "./Reveal";
 
 export function Hero() {
@@ -88,18 +89,14 @@ export function Hero() {
             {h.subtitle}
           </motion.p>
 
-          {/* WAY.APP mounts here, inside the left hero column (not fixed to the viewport). */}
+          {/* Lanzador de WAY.APP dentro de la columna izquierda del hero (abre el chat integrado). */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: easeLux, delay: 0.9 }}
             className="mt-7 max-w-xl"
           >
-            <div
-              id="wayapp-hero-widget"
-              className="min-h-[68px] w-full"
-              aria-label="Asistente WAY.APP"
-            />
+            <WayAppHeroLauncher />
           </motion.div>
 
           <motion.div

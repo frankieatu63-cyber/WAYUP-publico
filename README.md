@@ -110,6 +110,9 @@ npm run build      # build de producción
 npm run test       # tests de rutas
 ```
 
+WAY.APP (asistente de IA + panel `/admin`) está integrado en este proyecto: ver `docs/WAYAPP-INTEGRACION.md`.
+Para desarrollo con backend, copia `.env.example` a `.env` y usa `npm run dev:env`.
+
 Notas:
 - Los logos viven ahora en `src/assets/wayup-logo.png` (disco crema, usado en cabecera, pie y marca de agua del bloque de contacto) y `src/assets/wayup-logo-cobalt.png` (disco cobalto, disponible pero sin uso en el código original). Antes se cargaban desde URLs internas de Lovable (`/__l5e/assets-v1/...`) que no funcionan fuera de Lovable.
 - Email de contacto y enlaces de LinkedIn/Instagram: `src/components/site-nav.ts`. Los enlaces sociales son los genéricos del original (`linkedin.com`, `instagram.com`): sustitúyelos por los perfiles reales.

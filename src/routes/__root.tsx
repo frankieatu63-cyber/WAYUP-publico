@@ -14,6 +14,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { HTML_LANG, localeFromPathname } from "../i18n/config";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { WayAppWidget } from "../components/wayapp/WayAppWidget";
 
 function NotFoundComponent() {
   return (
@@ -120,11 +121,6 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
-        <script
-          async
-          src="https://wayappdef.francopdimauro.workers.dev/embed.js"
-          data-mode="floating"
-        />
       </body>
     </html>
   );
@@ -137,6 +133,8 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      {/* WAY.APP: asistente integrado (antes se cargaba con un <script> externo + iframe). */}
+      <WayAppWidget />
     </QueryClientProvider>
   );
 }
